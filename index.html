@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Portfólio</title>
+  <title>CPDGO - Solução Móvel RM</title>
 
   <style>
     body {
@@ -11,42 +11,105 @@
       margin: 0;
       line-height: 1.6;
       color: #333;
-      background-image: url('https://github.com/axavier08/astro-platform-starter/blob/main/CPDGOTELAOFICIAL.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      font-size: 16px; /* base para mobile */
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh; /* tela cheia no mobile */
+      background-image: url('https://raw.githubusercontent.com/axavier08/astro-platform-starter/main/CPDGOTELAOFICIAL.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end; /* alinha botão na parte inferior */
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* escurecimento para contraste */
+    }
+
+    .hero-title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ffffff;
+      font-size: 22px; /* tamanho bom para mobile */
+      font-weight: bold;
+      letter-spacing: 1px;
+      z-index: 2;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      max-width: 95%;
+      line-height: 1.3;
+    }
+
+    .saiba-mais-botao {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0974c3;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 2;
+    }
+
+    .saiba-mais-botao:hover {
+      background-color: #065a99;
+    }
+
     header {
       background-color: #0974c3;
       color: #fff;
-      padding: 40px 20px;
+      padding: 20px;
       text-align: center;
     }
+
     section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
     }
+
     h2 {
       color: #0974c3;
     }
+
     .portfolio ul {
       padding-left: 20px;
     }
+
     .portfolio li {
       margin-bottom: 10px;
     }
+
     form {
       display: flex;
       flex-direction: column;
     }
+
     input, textarea {
       margin-bottom: 10px;
       padding: 10px;
       font-size: 16px;
     }
+
     button {
       background-color: #0974c3;
       color: #fff;
@@ -55,13 +118,155 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #065a99;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      color: white;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+      40% { transform: translate(-50%, -10px); }
+      60% { transform: translate(-50%, -5px); }
+    }
+
+    hr {
+      border: none; 
+      height: 2px; 
+      background-color: #0974c3; 
+      margin: 40px auto; 
+      width: 80%;
+    }
+
+    /* ====== AJUSTES PARA TELAS MAIORES (TABLET / DESKTOP) ====== */
+    @media (min-width: 768px) {
+      body {
+        font-size: 18px;
+      }
+
+      .hero {
+        height: 80vh; /* evita ficar gigante em monitores */
+      }
+
+      .hero-title {
+        font-size: 32px;
+        max-width: 70%;
+      }
+
+      .saiba-mais-botao {
+        font-size: 18px;
+        padding: 14px 32px;
+        bottom: 50px;
+      }
+
+      header {
+        padding: 30px 20px;
+      }
+
+      section {
+        max-width: 1000px;
+        padding: 50px 40px;
+      }
+
+      input, textarea, button {
+        font-size: 18px;
+      }
+    }
+
+    /* ====== AJUSTES PARA MONITORES MUITO GRANDES ====== */
+    @media (min-width: 1200px) {
+      .hero {
+        height: 70vh;
+      }
+
+      .hero-title {
+        font-size: 36px;
+        max-width: 60%;
+      }
+
+      section {
+        max-width: 1200px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>CPDGO</h1>
-    <
+  <!-- Banner com imagem e texto sobreposto -->
+  <div class="hero">
+    <!-- Frase no topo da imagem -->
+    <div class="hero-title">Solução móvel integrada ao TOTVS RM</div>
+
+    <!-- Conteúdo central (pode ficar vazio ou ter algo a mais) -->
+    <div class="hero-content"></div>
+
+    <!-- Botão visível no rodapé da imagem -->
+    <a href="#cabecalho" class="saiba-mais-botao">Saiba mais</a>
+  </div>
+
+  <!-- Cabeçalho vem depois da imagem -->
+  <header id="cabecalho">
+    <h1>CPDgo!</h1>
+    <p>Mobilidade, controle e integração</p>
+  </header>
+
+  <!-- Primeira seção (mais abaixo) -->
+  <section class="portfolio" id="funcionalidades">
+    <h2>Funcionalidades do Sistema</h2>
+    <ul>
+      <li>✅ +70 telas para navegar em 5 módulos, consultando, incluindo, alterando e processando dados.</li>
+      <li>✅ Autorize ou faça pagamentos, cancele ou altere lançamentos.</li>
+      <li>✅ Consulte saldos do físicos ou financeiros e ajuste estoques.</li>
+      <li>✅ Fature, aprove, acompanhe ou cancele pedidos.</li>
+      <li>✅ Acesse clientes, fornecedores, colaboradores, reset senhas do usuários.</li>	  
+      <li>✅ Visualize relatórios consolidados e envios por e-mail.</li>
+      <li>✅ Tome decisões rápidas, onde e quando precisar.</li>
+      <li>✅ Adicione outras funções vitais para seu negócio.</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <section class="portfolio" id="Benecifios">
+    <h2>Benefícios e características</h2>
+    <ul>
+      <li>✅ Acesso ilimitado: Sem restrição de usuários, toda equipe aproveita os benefícios do app.</li>
+      <li>✅ Investimento ZERO na sua infra local ou cloud.</li>
+      <li>✅ Conectividade fácil: Requer no mínimo uma conexão 3G.</li>
+      <li>✅ Fácil usabilidade: Mantém familiaridade com o ERP RM TOTVS.</li>
+      <li>✅ Desempenho e integridade: Roda sobre DataServers e DataProcess nativos RM.</li>
+      <li>✅ Segurança: Aplicação NoCache, não armazena NENHUM dado da empresa.</li>
+      <li>✅ Segurança II: Até dupla camada de autenticação e previlégio de acesso.</li>
+      <li>✅ Implementação em até 45 dias, após o mapeamento do ambiente.</li>
+      <li>✅ Plano Customização: Monte sua lista de cadastros e processos para um orçamento.</li>
+      <li><strong>✅ Plano Standart, imbátivel: Assinatura mensal por menos de 2 salários mínimos.</strong></li>
+    </ul>
+  </section>
+
+  <!-- Contato -->
+  <section class="contato">
+    <h2>Solicite nosso portifólio completo</h2>
+    <form action="https://formspree.io/f/xzzgaqbe" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+
+      <!-- Redirecionamento -->
+      <input type="hidden" name="_next" value="https://cpdgo.netlify.app/obrigado.html">
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+</body>
+</html>
